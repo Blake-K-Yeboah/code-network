@@ -52,7 +52,7 @@ const LandingPageTextSection = ({ text, button, children }) => {
                                 rel="noreferrer"
                                 target="_blank"
                             >
-                                <div class={styles.btnContainer}>
+                                <div className={styles.btnContainer}>
                                     <button className={styles.primaryBtn}>
                                         {button.content}
                                     </button>
@@ -61,7 +61,7 @@ const LandingPageTextSection = ({ text, button, children }) => {
                         </>
                     ) : (
                         <Link to={button.link.text}>
-                            <div class={styles.btnContainer}>
+                            <div className={styles.btnContainer}>
                                 <button className={styles.primaryBtn}>
                                     {button.content}
                                 </button>
