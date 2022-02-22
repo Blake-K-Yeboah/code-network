@@ -11,7 +11,7 @@ import RegisterForm from "../components/RegisterForm";
 const Register = () => {
     useEffect(() => {
         // Automatic dark mode on register page
-        document.querySelector("body").classList.add("dark", "bg-slate-900");
+        document.querySelector("body").classList.add("dark", "bg-gray-900");
     }, []);
 
     return (

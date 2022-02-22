@@ -11,7 +11,7 @@ import LoginForm from "../components/LoginForm";
 const Login = () => {
     useEffect(() => {
         // Automatic dark mode on login page
-        document.querySelector("body").classList.add("dark", "bg-slate-900");
+        document.querySelector("body").classList.add("dark", "bg-gray-900");
     }, []);
 
     return (
