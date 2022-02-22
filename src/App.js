@@ -14,6 +14,9 @@ import { setUser } from "./slices/authSlice";
 import UnauthenticatedApp from "./UnauthenticatedApp";
 import AuthenticatedApp from "./AuthenticatedApp";
 
+// React Toastify Styling
+import "react-toastify/dist/ReactToastify.min.css";
+
 const App = () => {
     // Redux Dispatch
     const dispatch = useDispatch();
