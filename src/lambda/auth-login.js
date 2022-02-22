@@ -48,7 +48,7 @@ export async function handler(event) {
         console.error(err);
         return {
             statusCode: errorStatusCode,
-            body: JSON.stringify({ err: err }),
+            body: JSON.stringify({ msg: err.message }),
         };
     } finally {
         dbClient.close();
