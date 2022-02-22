@@ -6,7 +6,12 @@ const Footer = () => {
         <footer className={styles.footer}>
             <p className={styles.p}>
                 Built with ❤️ by{" "}
-                <a href="https://www.blakeyeboah.com/" className={styles.link}>
+                <a
+                    href="https://www.blakeyeboah.com/"
+                    className={styles.link}
+                    rel="noreferrer"
+                    target="_blank"
+                >
                     Blake Yeboah
                 </a>
             </p>
