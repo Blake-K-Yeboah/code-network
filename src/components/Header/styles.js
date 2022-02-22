@@ -1,5 +1,5 @@
 const styles = {
-    header: "flex justify-center items-center flex-col h-[92.5vh] relative bg-slate-900",
+    header: "flex justify-center items-center flex-col h-[92.5vh] relative bg-gray-900",
     h2: "text-6xl font-black text-gray-50 text-center capitalize leading-[1.3em] relative -top-6",
     h2Gradient:
         "block bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent",
