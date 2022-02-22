@@ -1,5 +1,5 @@
 const styles = {
-    section: "pt-36 pb-0",
+    section: "mt-48 pb-0",
     h3: "text-5xl font-black text-gray-50 text-center capitalize leading-[1.3em] relative -top-6",
     paragraph:
         "text-lg text-slate-400 w-[35%] mx-auto mt-8 text-center leading-loose relative -top-6",

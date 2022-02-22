@@ -14,7 +14,7 @@ import LandingPageBoxes from "../components/LandingPageBoxes";
 const LandingPage = () => {
     useEffect(() => {
         // Automatic dark mode on landing page
-        document.querySelector("body").classList.add("dark", "bg-slate-900");
+        document.querySelector("body").classList.add("dark", "bg-gray-900");
     }, []);
 
     const textSections = [
