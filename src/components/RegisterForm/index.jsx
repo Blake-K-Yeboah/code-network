@@ -9,13 +9,20 @@ import { FiArrowUpLeft } from "react-icons/fi";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 // Link Component
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Framer Motion
 import { motion } from "framer-motion";
 
 // React Toast
 import { ToastContainer, toast } from "react-toastify";
+
+// Axios
+import axios from "axios";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { setUser } from "../../slices/authSlice";
 
 const RegisterForm = () => {
     const [userInput, setUserInput] = useState({
@@ -29,12 +36,29 @@ const RegisterForm = () => {
         setUserInput({ ...userInput, [e.target.id]: e.target.value });
     };
 
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const register = async () => {
+        try {
+            const res = await axios.post("/api/auth-register", userInput);
+            dispatch(setUser(res.data.token));
+            localStorage.setItem("token", res.data.token);
+            navigate("/");
+        } catch (error) {
+            setError(error.response.data.msg);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     const formHandler = (e) => {
         e.preventDefault();
-        console.table(userInput);
-        setError("An error occured.");
-
-        // TODO: Make Register Request
+        setIsLoading(true);
+        register();
     };
 
     const [passwordInputType, setPasswordInputType] = useState("password");
@@ -45,18 +69,10 @@ const RegisterForm = () => {
         );
     };
 
-    const [error, setError] = useState(null);
-
     useEffect(() => {
         if (error) {
             toast.error(error, {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
+                theme: "colored",
             });
             setError(null);
         }
@@ -156,7 +172,7 @@ const RegisterForm = () => {
                                 type="submit"
                                 className={styles.primaryBtn}
                             >
-                                Register
+                                {isLoading ? "Loading..." : "Register"}
                             </motion.button>
                             <Link to="/login">
                                 <motion.button
