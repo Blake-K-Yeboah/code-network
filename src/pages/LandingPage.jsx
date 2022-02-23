@@ -65,7 +65,7 @@ const LandingPage = () => {
             <Header />
             <LandingPageTextSection text={textSections[0]}>
                 <img
-                    className="w-[50%] mx-auto mt-8 mb-16 rounded-xl shadow-xl"
+                    className="w-[80%] md:w-[70%] xl:w-[60%] mx-auto mt-8 mb-16 rounded-xl shadow-xl"
                     src="/img/screenshot.jpg"
                     alt="Screenshot of platform"
                 />
@@ -78,7 +78,7 @@ const LandingPage = () => {
                 button={contributeBtn}
             >
                 <img
-                    className="w-[50%] mx-auto mt-16 mb-12 rounded-xl shadow-xl"
+                    className="w-[80%] md:w-[70%] xl:w-[60%] mx-auto mt-16 mb-12 rounded-xl shadow-xl"
                     src="/img/code-img.jpg"
                     alt="Code on a screen"
                 />
