@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 // Helmet
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 // Components
 import Navbar from "../components/Navbar";
@@ -21,6 +22,7 @@ const Register = () => {
             </Helmet>
             <Navbar />
             <RegisterForm />
+            <Footer />
         </>
     );
 };

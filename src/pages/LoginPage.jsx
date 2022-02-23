@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 // Components
 import Navbar from "../components/Navbar";
 import LoginForm from "../components/LoginForm";
+import Footer from "../components/Footer";
 
 const Login = () => {
     useEffect(() => {
@@ -21,6 +22,7 @@ const Login = () => {
             </Helmet>
             <Navbar />
             <LoginForm />
+            <Footer />
         </>
     );
 };
