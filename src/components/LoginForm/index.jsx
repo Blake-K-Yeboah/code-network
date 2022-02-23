@@ -48,7 +48,6 @@ const LoginForm = () => {
             navigate("/");
         } catch (error) {
             setError(error.response.data.msg);
-        } finally {
             setIsLoading(false);
         }
     };
