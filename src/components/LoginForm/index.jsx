@@ -23,7 +23,6 @@ import axios from "axios";
 // Redux
 import { useDispatch } from "react-redux";
 import { setUser } from "../../slices/authSlice";
-import Login from "../../pages/LoginPage.jsx";
 
 const LoginForm = () => {
     const [userInput, setUserInput] = useState({
@@ -153,7 +152,7 @@ const LoginForm = () => {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     type="button"
-                                    className={`${styles.secondaryBtn} ml-8`}
+                                    className={`${styles.secondaryBtn} mt-8 sm:mt-0 sm:ml-8`}
                                 >
                                     Don't have an account?
                                 </motion.button>

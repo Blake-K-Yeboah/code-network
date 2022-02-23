@@ -179,7 +179,7 @@ const RegisterForm = () => {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     type="button"
-                                    className={`${styles.secondaryBtn} ml-8`}
+                                    className={`${styles.secondaryBtn} mt-8 sm:mt-0 sm:ml-8`}
                                 >
                                     Already have an account?
                                 </motion.button>

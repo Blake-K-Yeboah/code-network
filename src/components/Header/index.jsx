@@ -25,7 +25,7 @@ const Header = () => {
                 transition={{ ease: "easeOut", duration: 1, delay: 0.5 }}
             >
                 <h2 className={styles.h2}>
-                    Welcome to a new
+                    Welcome To a New
                     <span className={styles.h2Gradient}>digital world</span>
                 </h2>
                 <p className={styles.paragraph}>
