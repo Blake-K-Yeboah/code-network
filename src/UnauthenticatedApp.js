@@ -1,5 +1,8 @@
+// useEffect hook
+import { useEffect } from "react";
+
 // React Router Stuff
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // Pages
 import LandingPage from "./pages/LandingPage";
@@ -7,6 +10,12 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 
 const UnauthenticatedApp = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     return (
         <Routes>
             <Route path="/">

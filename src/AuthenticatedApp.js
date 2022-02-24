@@ -1,10 +1,19 @@
+// useEffect hook
+import { useEffect } from "react";
+
 // React Router Stuff
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 // Pages
 import HomePage from "./pages/HomePage";
 
 const AuthenticatedApp = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     return (
         <Routes>
             <Route path="/">
