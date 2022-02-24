@@ -11,6 +11,10 @@ const createClient = () => {
         return this.db(NODE_ENV).collection("users");
     };
 
+    client.postsCollection = function () {
+        return this.db(NODE_ENV).collection("posts");
+    };
+
     return client;
 };
 
