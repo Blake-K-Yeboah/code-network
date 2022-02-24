@@ -31,7 +31,10 @@ export async function handler(event) {
             throw new Error("Invalid Request");
         }
 
-        await users.updateOne({ email: user.email }, { $set: body });
+        await users.updateOne(
+            { email: user.email },
+            { $set: { ...body, isNewAccount: false } }
+        );
 
         const updatedUser = await users.findOne({ email: user.email });
 
