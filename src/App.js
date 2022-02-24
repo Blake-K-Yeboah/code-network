@@ -34,15 +34,22 @@ const App = () => {
 
     const user = useSelector((state) => state.auth.user);
 
+    // Dark Mode Functionality
     useEffect(() => {
-        if (user && user.darkMode) {
+        const enableDarkMode = () => {
             document.querySelector("body").classList.add("dark", "bg-gray-900");
             document.querySelector("body").classList.remove("bg-gray-100");
+        };
+
+        if (user && user.darkMode) {
+            enableDarkMode();
         } else if (user) {
             document
                 .querySelector("body")
                 .classList.remove("dark", "bg-gray-900");
             document.querySelector("body").classList.add("bg-gray-100");
+        } else {
+            enableDarkMode();
         }
     }, [user]);
 
