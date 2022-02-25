@@ -1,8 +1,8 @@
 const styles = {
     header: "flex justify-center items-center flex-col h-[92.5vh] relative bg-gray-900",
-    h2: "font-black text-gray-50 text-center leading-[1.3em] relative -top-6 text-4xl sm:text-5xl sm:w-full md:text-6xl capitalize",
+    h2: "font-black text-gray-50 text-center relative -top-6 text-4xl sm:text-5xl sm:w-full md:text-6xl capitalize",
     h2Gradient:
-        "block bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent",
+        "block bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent pb-4",
     paragraph:
         "text-slate-400 w-[80%] md:w-[60%] 2xl:w-[35%] mx-auto mt-8 mb-12 text-center leading-loose relative -top-6 text-md sm:text-xl",
     div: "flex items-center justify-center relative -top-6 flex-col sm:flex-row",
