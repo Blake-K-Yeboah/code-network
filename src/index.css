@@ -14,3 +14,9 @@
 ::-webkit-scrollbar-thumb {
     background: #6366f1;
 }
+
+/* Hide Scrollbar On Special Class */
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0
+}
