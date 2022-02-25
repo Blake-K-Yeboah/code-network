@@ -21,7 +21,7 @@ const LandingPage = () => {
         {
             heading: "Simple, Social And Fun",
             paragraph:
-                "The platform allows you to socialize with other developers, share your awesome resources with the community and play tech trivia for fun.",
+                "The platform allows you to socialize with other developers, share posts with the awesome community and play tech trivia for fun.",
         },
         {
             heading: "Why Should You Join",
@@ -36,7 +36,7 @@ const LandingPage = () => {
         {
             heading: "Join the Platform Today",
             paragraph:
-                "Hit the button below to start creating your account and join this awesome platform",
+                "Hit the button below to start creating your account and join this awesome platform today!",
         },
     ];
 
