@@ -26,8 +26,8 @@ const LandingPageBoxes = () => {
     const boxDetails = [
         {
             icon: <FaShareAlt className={styles.icon} />,
-            title: "Share Resources",
-            desc: "Share your favourite resources with the community and browse others",
+            title: "Share Posts",
+            desc: "Share posts with the community and interact with other user's posts",
         },
         {
             icon: <FaUsers className={styles.icon} />,
