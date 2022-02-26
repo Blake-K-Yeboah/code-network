@@ -6,7 +6,7 @@ const styles = {
         "font-bold hover:text-blue-500 text-md text-gray-600 dark:text-gray-300 dark:hover:text-blue-500",
     time: "font-normal text-sm text-gray-400",
     content: "px-8 py-6",
-    title: "font-bold text-xl text-gray-600  dark:text-gray-300 dark:hover:text-blue-500 ",
+    title: "font-bold text-xl text-gray-600  dark:text-gray-300",
     body: "text-md text-gray-400 mt-3",
     actions: "pb-4 pt-1 px-8 flex items-center",
     actionBtn:
