@@ -21,7 +21,7 @@ const HomePage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // Fetch Users
+        // Fetch Users And Posts
         const fetchUsersAndPosts = async () => {
             try {
                 const usersRes = await axios.get("/api/users-get");
