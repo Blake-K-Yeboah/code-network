@@ -59,6 +59,7 @@ const ProfilePage = () => {
                 navigate("/");
             }
         }
+        // eslint-disable-next-line
     }, [users]);
 
     return (
