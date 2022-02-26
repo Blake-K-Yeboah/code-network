@@ -29,7 +29,7 @@ const Actions = () => {
                     <FaPlay className={`${styles.btnIcon}`} />
                 </Link>
                 <Link
-                    to="/posts/create"
+                    to="/posts"
                     className={`${styles.btn} ${styles.primaryBtn}`}
                 >
                     Write a post

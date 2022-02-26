@@ -3,8 +3,8 @@ const styles = {
     textGroup: "text-center mb-4 text-gray-400",
     link: "text-sm hover:text-indigo-500",
     divider: "font-light mx-[.75vw]",
-    logo: "font-mono text-gray-300 text-center text-xl mb-2 dark:text-gray-600",
-    copyrightText: "text-center text-gray-300 text-xs dark:text-gray-600",
+    logo: "font-mono text-gray-300 text-center text-xl mb-2 dark:text-gray-500",
+    copyrightText: "text-center text-gray-300 text-xs dark:text-gray-500",
 };
 
 export default styles;

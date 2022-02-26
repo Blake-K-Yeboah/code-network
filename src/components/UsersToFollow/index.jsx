@@ -56,7 +56,7 @@ const UsersToFollow = () => {
                   }
                   return true;
               })
-              .slice(0, 3)
+              .slice(0, 5)
         : null;
 
     return (

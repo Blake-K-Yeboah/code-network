@@ -8,6 +8,9 @@ import Actions from "../Actions";
 import Posts from "../Posts";
 import TriviaPreview from "../TriviaPreview";
 import UsersToFollow from "../UsersToFollow";
+import WriteAPost from "../WriteAPost";
+import MoreInfoCard from "../MoreInfoCard";
+import Users from "../Users";
 
 // Prop Types
 import PropTypes from "prop-types";
@@ -44,6 +47,17 @@ const Feed = ({ type }) => {
                         <Posts />
                     </>
                 )}
+                {type === "posts" && (
+                    <>
+                        <WriteAPost />
+                        <Posts />
+                    </>
+                )}
+                {type === "users" && (
+                    <>
+                        <Users />
+                    </>
+                )}
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -57,6 +71,16 @@ const Feed = ({ type }) => {
                     <>
                         <TriviaPreview />
                         <UsersToFollow />
+                    </>
+                )}
+                {type === "posts" && (
+                    <>
+                        <MoreInfoCard />
+                    </>
+                )}
+                {type === "users" && (
+                    <>
+                        <TriviaPreview />
                     </>
                 )}
             </motion.div>

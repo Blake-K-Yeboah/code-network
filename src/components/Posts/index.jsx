@@ -7,7 +7,10 @@ import { useSelector } from "react-redux";
 // Post Component
 import Post from "../Post";
 
-const Posts = () => {
+// Prop Types
+import PropTypes from "prop-types";
+
+const Posts = ({ username }) => {
     const posts = useSelector((state) => state.posts.posts);
 
     const loaders = (
@@ -18,15 +21,24 @@ const Posts = () => {
         </>
     );
 
+    const displayPosts =
+        posts && username
+            ? posts.filter((post) => post.author.username === username)
+            : posts;
+
     return (
         <div className={styles.container}>
-            {!posts
+            {!displayPosts
                 ? loaders
-                : posts.map((post) => {
+                : displayPosts.map((post) => {
                       return <Post post={post} key={post._id} />;
                   })}
         </div>
     );
+};
+
+Posts.propTypes = {
+    username: PropTypes.string,
 };
 
 export default Posts;

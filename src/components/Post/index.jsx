@@ -1,3 +1,6 @@
+// useState hook
+import { useState } from "react";
+
 // Styles
 import styles from "./styles";
 
@@ -15,6 +18,7 @@ import {
     AiOutlineDislike,
     AiOutlineComment,
     AiOutlineSetting,
+    AiOutlineSend,
 } from "react-icons/ai";
 
 // Redux
@@ -26,6 +30,13 @@ import { toast } from "react-toastify";
 
 // Axios
 import axios from "axios";
+
+// Framer Motion
+import { AnimatePresence, motion } from "framer-motion";
+
+// Components
+import Comment from "../Comment";
+import PostSettings from "../PostSettings";
 
 // Calculate Time Since Post
 function timeSince(date) {
@@ -103,6 +114,37 @@ const Post = ({ post }) => {
         }
     };
 
+    const [commentShow, setCommentShow] = useState(false);
+    const [comment, setComment] = useState("");
+
+    const commentHandler = async () => {
+        if (!comment) {
+            toast.error("Please enter a comment", { theme: "colored" });
+        } else {
+            const body = { body: comment };
+            const config = {
+                headers: {
+                    authorization: `Bearer ${token}`,
+                },
+            };
+
+            try {
+                const res = await axios.put(
+                    `/api/posts-comment?postId=${post._id}`,
+                    body,
+                    config
+                );
+                dispatch(updatePost(res.data));
+                toast.success("Commented.", { theme: "colored" });
+                setComment("");
+            } catch (err) {
+                toast.error("An error occured.", { theme: "colored" });
+            }
+        }
+    };
+
+    const [settingsShow, setSettingsShow] = useState(false);
+
     return (
         <div className={styles.post}>
             <div className={styles.postedBySection}>
@@ -116,7 +158,7 @@ const Post = ({ post }) => {
                         to={`/users/${post.author.username}`}
                         className={styles.postedBy}
                     >
-                        {post.author.username}
+                        @{post.author.username}
                     </Link>
                     <p className={styles.time}>
                         Posted {timeSince(new Date(post.createdAt))} ago
@@ -124,9 +166,7 @@ const Post = ({ post }) => {
                 </div>
             </div>
             <div className={styles.content}>
-                <Link to={`/posts/${post._id}`} className={styles.title}>
-                    {post.title}
-                </Link>
+                <h5 className={styles.title}>{post.title}</h5>
                 <p className={styles.body}>{post.body}</p>
             </div>
             <div className={styles.actions}>
@@ -160,23 +200,68 @@ const Post = ({ post }) => {
                     )}
                     {post.dislikes.length}
                 </span>
-                <Link
-                    to={`/posts/${post._id}`}
+                <span
+                    onClick={() => {
+                        setCommentShow(!commentShow);
+                        setSettingsShow(false);
+                    }}
                     className={`${styles.actionBtn} ${styles.normalActionBtn} ml-6`}
                 >
                     <AiOutlineComment className={styles.icon} />
                     {post.comments.length} Comments
-                </Link>
+                </span>
                 {post.author.username === user.username && (
-                    <Link
-                        to={`/posts/${post._id}/settings`}
+                    <span
+                        onClick={() => {
+                            setSettingsShow(!settingsShow);
+                            setCommentShow(false);
+                        }}
                         className={`${styles.actionBtn} ${styles.normalActionBtn} ml-6`}
                     >
                         <AiOutlineSetting className={styles.icon} />
                         Post Settings
-                    </Link>
+                    </span>
                 )}
             </div>
+            <AnimatePresence initial={false} exitBeforeEnter={true}>
+                {commentShow && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className={styles.commentSection}
+                    >
+                        <h5 className={styles.commentHeading}>
+                            Write A Comment
+                        </h5>
+                        <input
+                            className={styles.writeACommentInput}
+                            value={comment}
+                            placeholder="Your comment..."
+                            onChange={(e) => setComment(e.target.value)}
+                        />
+                        <AiOutlineSend
+                            className={styles.commentIcon}
+                            onClick={commentHandler}
+                        ></AiOutlineSend>
+                        {post.comments.length > 0 ? (
+                            post.comments.map((c) => (
+                                <Comment
+                                    comment={c}
+                                    key={c._id}
+                                    timeSince={timeSince}
+                                    post={post}
+                                />
+                            ))
+                        ) : (
+                            <p className={styles.noComments}>
+                                No one has commented yet.
+                            </p>
+                        )}
+                    </motion.div>
+                )}
+                {settingsShow && <PostSettings post={post} />}
+            </AnimatePresence>
         </div>
     );
 };
