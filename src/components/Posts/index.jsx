@@ -26,13 +26,23 @@ const Posts = ({ username }) => {
             ? posts.filter((post) => post.author.username === username)
             : posts;
 
+    console.log(displayPosts);
+
     return (
         <div className={styles.container}>
-            {!displayPosts
-                ? loaders
-                : displayPosts.map((post) => {
-                      return <Post post={post} key={post._id} />;
-                  })}
+            {!displayPosts ? (
+                loaders
+            ) : displayPosts.length === 0 ? (
+                <>
+                    <div className={styles.noPosts}>
+                        <p className={styles.text}>This user has no posts.</p>
+                    </div>
+                </>
+            ) : (
+                displayPosts.map((post) => {
+                    return <Post post={post} key={post._id} />;
+                })
+            )}
         </div>
     );
 };
