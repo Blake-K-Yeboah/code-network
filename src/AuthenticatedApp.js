@@ -7,6 +7,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 // Pages
 import HomePage from "./pages/HomePage";
 import PostsPage from "./pages/PostsPage";
+import ProfilePage from "./pages/ProfilePage";
 import UsersPage from "./pages/UsersPage";
 
 const AuthenticatedApp = () => {
@@ -25,6 +26,7 @@ const AuthenticatedApp = () => {
                 </Route>
                 <Route path="users">
                     <Route index element={<UsersPage />} />
+                    <Route path=":username" element={<ProfilePage />} />
                 </Route>
             </Route>
         </Routes>
