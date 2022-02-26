@@ -11,6 +11,7 @@ import UsersToFollow from "../UsersToFollow";
 import WriteAPost from "../WriteAPost";
 import MoreInfoCard from "../MoreInfoCard";
 import Users from "../Users";
+import Profile from "../Profile";
 
 // Prop Types
 import PropTypes from "prop-types";
@@ -18,7 +19,7 @@ import PropTypes from "prop-types";
 // Framer Motion
 import { motion } from "framer-motion";
 
-const Feed = ({ type }) => {
+const Feed = ({ type, user }) => {
     return (
         <main className={styles.grid}>
             <motion.div
@@ -58,6 +59,12 @@ const Feed = ({ type }) => {
                         <Users />
                     </>
                 )}
+                {type === "profile" && (
+                    <>
+                        <Profile user={user} />
+                        <Posts username={user.username} />
+                    </>
+                )}
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -67,7 +74,7 @@ const Feed = ({ type }) => {
                     duration: 0.75,
                 }}
             >
-                {type === "home" && (
+                {(type === "home" || type === "profile") && (
                     <>
                         <TriviaPreview />
                         <UsersToFollow />
@@ -90,6 +97,7 @@ const Feed = ({ type }) => {
 
 Feed.propTypes = {
     type: PropTypes.string.isRequired,
+    user: PropTypes.object,
 };
 
 export default Feed;
