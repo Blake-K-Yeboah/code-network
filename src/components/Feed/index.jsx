@@ -12,6 +12,7 @@ import WriteAPost from "../WriteAPost";
 import MoreInfoCard from "../MoreInfoCard";
 import Users from "../Users";
 import Profile from "../Profile";
+import Game from "../Game";
 
 // Prop Types
 import PropTypes from "prop-types";
@@ -62,7 +63,12 @@ const Feed = ({ type, user }) => {
                 {type === "profile" && (
                     <>
                         <Profile user={user} />
-                        <Posts username={user.username} />
+                        <Posts username={user ? user.username : ""} />
+                    </>
+                )}
+                {type === "trivia" && (
+                    <>
+                        <Game />
                     </>
                 )}
             </motion.div>
@@ -88,6 +94,11 @@ const Feed = ({ type, user }) => {
                 {type === "users" && (
                     <>
                         <TriviaPreview />
+                    </>
+                )}
+                {type === "trivia" && (
+                    <>
+                        <UsersToFollow />
                     </>
                 )}
             </motion.div>
