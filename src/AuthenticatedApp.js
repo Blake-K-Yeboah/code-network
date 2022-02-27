@@ -8,6 +8,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PostsPage from "./pages/PostsPage";
 import ProfilePage from "./pages/ProfilePage";
+import TriviaPage from "./pages/TriviaPage";
 import UsersPage from "./pages/UsersPage";
 
 const AuthenticatedApp = () => {
@@ -21,13 +22,12 @@ const AuthenticatedApp = () => {
         <Routes>
             <Route path="/">
                 <Route index element={<HomePage />} />
-                <Route path="posts">
-                    <Route index element={<PostsPage />} />
-                </Route>
+                <Route path="posts" element={<PostsPage />} />
                 <Route path="users">
                     <Route index element={<UsersPage />} />
                     <Route path=":username" element={<ProfilePage />} />
                 </Route>
+                <Route path="trivia" element={<TriviaPage />} />
             </Route>
         </Routes>
     );
