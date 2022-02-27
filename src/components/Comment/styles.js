@@ -1,5 +1,5 @@
 const styles = {
-    comment: "w-4/5 flex justify-between items-center my-3",
+    comment: "w-9/10 sm:w-4/5 flex justify-between items-center my-3",
     deleteIcon:
         "text-gray-600 text-xl transition duration-333 hover:text-red-400 cursor-pointer dark:text-gray-300 dark:hover:text-red-400",
     username:

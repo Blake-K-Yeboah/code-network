@@ -45,9 +45,19 @@ const Question = ({ question, setScore, nextQuestion, isLast }) => {
             // Check If Correct Answer
             if (selectedAnswer[0] === question.correct_answer) {
                 setScore((score) => score + 1);
-                toast.success("Correct! Good Job!", { theme: "colored" });
+                if (window.innerWidth < 1024) {
+                    alert("Correct Answer");
+                } else {
+                    toast.success("Correct! Good Job!", { theme: "colored" });
+                }
             } else {
-                toast.error("Wrong Answer! Bad Luck!", { theme: "colored" });
+                if (window.innerWidth < 1024) {
+                    alert("Wrong Answer");
+                } else {
+                    toast.error("Wrong Answer! Bad Luck!", {
+                        theme: "colored",
+                    });
+                }
             }
 
             // Move To Next Question

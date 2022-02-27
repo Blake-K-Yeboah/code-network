@@ -1,5 +1,6 @@
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../slices/authSlice";
 
 // Styles
 import styles from "./styles.js";
@@ -7,11 +8,17 @@ import styles from "./styles.js";
 // Framer Motion
 import { motion } from "framer-motion";
 
-// Link Component
-import { Link } from "react-router-dom";
+// React Router Stuff
+import { Link, useNavigate } from "react-router-dom";
 
 // Icons
-import { FaClone, FaHome, FaQuestionCircle, FaUsers } from "react-icons/fa";
+import {
+    FaClone,
+    FaDoorOpen,
+    FaHome,
+    FaQuestionCircle,
+    FaUsers,
+} from "react-icons/fa";
 
 // Components
 import Dropdown from "../Dropdown/index.jsx";
@@ -21,9 +28,7 @@ const Navbar = () => {
 
     const brand = (
         <h2
-            className={`${styles.brand} ${
-                isAuthenticated ? "dark:text-black" : ""
-            }`}
+            className={`${styles.brand} ${isAuthenticated && styles.authBrand}`}
         >
             &lt;Code Network &#x2f;&gt;
         </h2>
@@ -39,6 +44,15 @@ const Navbar = () => {
         } else {
             return styles.notActiveLink;
         }
+    };
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const logoutHandler = () => {
+        localStorage.removeItem("token");
+        dispatch(setUser(null));
+        navigate("/login");
     };
 
     const navLinks = (
@@ -68,6 +82,13 @@ const Navbar = () => {
                 <FaQuestionCircle />
                 Trivia
             </Link>
+            <span
+                className={`${styles.navLink} ${styles.notActiveLink} ${styles.mobileLink}`}
+                onClick={logoutHandler}
+            >
+                <FaDoorOpen />
+                Logout
+            </span>
         </div>
     );
 
@@ -81,7 +102,9 @@ const Navbar = () => {
             {isAuthenticated && (
                 <>
                     {navLinks}
-                    <Dropdown />
+                    <div className={styles.dropdownContainer}>
+                        <Dropdown />
+                    </div>
                 </>
             )}
         </motion.nav>

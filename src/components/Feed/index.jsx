@@ -30,6 +30,7 @@ const Feed = ({ type, user }) => {
                     ease: "easeInOut",
                     duration: 0.75,
                 }}
+                className="hidden lg:block"
             >
                 <ProfileCard />
                 <CopyrightCard />
@@ -79,6 +80,7 @@ const Feed = ({ type, user }) => {
                     ease: "easeInOut",
                     duration: 0.75,
                 }}
+                className="hidden xl:block"
             >
                 {(type === "home" || type === "profile") && (
                     <>

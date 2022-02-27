@@ -1,7 +1,8 @@
 const styles = {
-    box: "w-full px-8 py-6 bg-white rounded-md mb-6 flex items-center justify-between dark:bg-gray-800",
-    details: "flex items-center",
-    profilePic: "w-14 h-14 rounded-full mr-4",
+    box: "w-full px-8 py-12 sm:py-6 bg-white rounded-md mb-6 flex flex-col sm:flex-row items-center justify-between dark:bg-gray-800",
+    details:
+        "flex items-center sm:flex-row flex-col mb-6 sm:mb-0 sm:text-left text-center",
+    profilePic: "w-14 h-14 rounded-full mb-6 sm:mb-0 sm:mr-4",
     name: "text-lg font-bold text-gray-600 transition duration-333 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-500",
     username: "font-medium text-gray-500 text-md my-1 dark:text-gray-300",
     headline: "text-md text-gray-400",

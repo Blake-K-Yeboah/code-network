@@ -80,7 +80,7 @@ const Profile = ({ user }) => {
                                 disabled
                                 className={`${styles.btn} ${styles.disabledBtn}`}
                             >
-                                Follow
+                                Follow {followerCount}
                             </button>
                         )}
                     </div>

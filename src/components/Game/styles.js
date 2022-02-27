@@ -1,7 +1,8 @@
 const styles = {
     gameBox:
         "w-full h-[99%] bg-white dark:bg-gray-800 flex flex-col items-center justify-center rounded-md",
-    welcome: "text-4xl font-bold text-gray-600 dark:text-gray-200",
+    welcome:
+        "text-4xl font-bold text-gray-600 dark:text-gray-200 text-center w-[80%]",
     paragraph:
         "text-lg w-3/5 text-center mt-8 text-gray-500 dark:text-gray-300",
     options: "w-full",

@@ -175,7 +175,7 @@ const Post = ({ post }) => {
                         userLikesPost
                             ? styles.primaryActionBtn
                             : styles.normalActionBtn
-                    }`}
+                    } mr-6`}
                     onClick={likePostHandler}
                 >
                     {userLikesPost ? (
@@ -190,7 +190,7 @@ const Post = ({ post }) => {
                         userDislikesPost
                             ? styles.primaryActionBtn
                             : styles.normalActionBtn
-                    } ml-6`}
+                    } mr-6`}
                     onClick={dislikePostHandler}
                 >
                     {userDislikesPost ? (
@@ -205,7 +205,7 @@ const Post = ({ post }) => {
                         setCommentShow(!commentShow);
                         setSettingsShow(false);
                     }}
-                    className={`${styles.actionBtn} ${styles.normalActionBtn} ml-6`}
+                    className={`${styles.actionBtn} ${styles.normalActionBtn}  ${styles.specialBtn} mr-6`}
                 >
                     <AiOutlineComment className={styles.icon} />
                     {post.comments.length} Comments
@@ -216,7 +216,7 @@ const Post = ({ post }) => {
                             setSettingsShow(!settingsShow);
                             setCommentShow(false);
                         }}
-                        className={`${styles.actionBtn} ${styles.normalActionBtn} ml-6`}
+                        className={`${styles.actionBtn} ${styles.normalActionBtn} ${styles.specialBtn}`}
                     >
                         <AiOutlineSetting className={styles.icon} />
                         Post Settings
