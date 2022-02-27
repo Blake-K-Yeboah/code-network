@@ -40,6 +40,7 @@ This project is an open-source social network for developers built with serverle
 
 ## 👨‍💻 Contributing
 - Contributions are greatly appreciated.
+- Check out [Contributing.md](https://github.com/Blake-K-Yeboah/code-network/blob/master/Contributing.md) file for more details
 
 <br>
 
@@ -47,6 +48,38 @@ This project is an open-source social network for developers built with serverle
 
 This project is licensed under an MIT license. Check out [LICENSE file](https://github.com/Blake-K-Yeboah/code-network/blob/master/LICENSE) for more info.
 
+<br>
+
+## 🛠 Installation
+
+1.  Make sure you have node.js installed, run this command to check if its installed:
+
+```node --version```
+
+2. Fork & Clone the repository and run `yarn install` or `npm install` in root directory
+
+2. Create a MongoDB atlas account and a new database and database user
+   
+3. Copy your MongoDB URI and replace the URI in `src/lambda/helpers/createClient.js`
+
+```
+const client = new MongoClient( 
+    `mongodb+srv://adminUser:${MONGODB_PASSWORD}@main.kyvd3.mongodb.net/development?retryWrites=true&w=majority`,
+    { useNewUrlParser: true, useUnifiedTopology: true }
+);
+```
+> Store your db user's password in an environment variable in a `.env.local` file
+
+4. Add a `JWT_SECRET` env variable in your `.env.local` file e.g `JWT_SECRET=thisismysecret`
+   
+5. Install Netlify CLI globally:
+
+```npm install -g netlify-cli```
+
+6. Run `netlify dev` or `ntl dev` in command line to start server on port `8888`
+
+7. Navigate to `localhost:8888` to view web app. :)
+   
 <br>
 
 ## 😍 Show Your Support
