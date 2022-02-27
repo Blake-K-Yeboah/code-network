@@ -26,8 +26,6 @@ const Posts = ({ username }) => {
             ? posts.filter((post) => post.author.username === username)
             : posts;
 
-    console.log(displayPosts);
-
     return (
         <div className={styles.container}>
             {!displayPosts ? (
