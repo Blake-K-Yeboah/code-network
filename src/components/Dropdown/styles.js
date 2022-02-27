@@ -4,7 +4,7 @@ const styles = {
     userIcon: "mr-3 text-gray-100 hover:text-white",
     chevron: "ml-3 text-xs",
     dropdown:
-        "absolute w-44 h-32 bg-indigo-600 right-[12.5vw] -bottom-32 z-40 px-6 py-3 text-center flex flex-col justify-evenly shadow-2xl",
+        "absolute w-44 h-32 bg-indigo-600 right-[8.75vw] -bottom-32 z-40 px-6 py-3 text-center flex flex-col justify-evenly shadow-2xl",
     dropdownText: "text-gray-200 cursor-pointer hover:text-white text-sm",
 };
 
